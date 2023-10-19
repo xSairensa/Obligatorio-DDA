@@ -1,4 +1,4 @@
-public class Persona {
+public abstract class Persona {
     private String nombre;
     private String apellido;
     private String ci;
@@ -21,4 +21,6 @@ public class Persona {
     public void setCi(String ci) {this.ci = ci;}
     public int getSueldo() { return sueldo;}
     public void setSueldo(int sueldo){this.sueldo = sueldo;}
+    public abstract int precalentar();
+    public abstract int getBonificacion();
 }
