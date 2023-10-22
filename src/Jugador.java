@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+
 public class Jugador extends Persona{
+    static int idJugador = 1;
     private String posicion;
     private String equipo;
     private int minutosJugados;
@@ -29,5 +32,28 @@ public class Jugador extends Persona{
     @Override
     public int getBonificacion(){
         return (int) (super.getSueldo()*1.2);
+    }
+
+    @Override
+    public String toString() {
+        return  "Nombre: " + this.nombre +
+                ", Apellido: " + this.apellido +
+                ", CI: " + this.ci +
+                ", Sueldo: " + this.sueldo +
+                ", Posición: " + this.posicion +
+                ", Equipo: " + this.equipo +
+                ", Minutos Jugados: " + this.minutosJugados;
+    }
+
+    public Jugador(String pNombre, String pApellido, String pCi, int pSueldo, String pPosicion) {
+        this.id = idJugador;
+        this.nombre = pNombre;
+        this.apellido = pApellido;
+        this.ci = pCi;
+        this.sueldo = pSueldo;
+        this.posicion = pPosicion;
+        this.equipo = "Ninguno";
+        this.minutosJugados = 0;
+        idJugador++;
     }
 }

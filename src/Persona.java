@@ -1,10 +1,20 @@
 public abstract class Persona {
-    private String nombre;
-    private String apellido;
-    private String ci;
-    private int sueldo;
+    protected int id;
+    protected String nombre;
+    protected String apellido;
+    protected String ci;
+    protected int sueldo;
     public Persona() {
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getNombre() {
         return nombre;
     }
