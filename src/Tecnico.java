@@ -15,4 +15,22 @@ public class Tecnico extends Persona{
     public int getBonificacion(){
         return 0;
     }
+    @Override
+    public String toString() {
+        return  "Nombre: " + this.getNombre() +
+                ", Apellido: " + this.getApellido() +
+                ", CI: " + this.getCi() +
+                ", Sueldo: " + this.getSueldo() +
+                ", Equipo: " + this.equipo;
+    }
+
+    public Tecnico(int idTecnico, String pNombre, String pApellido, String pCi, int pSueldo, String pEquipo) {
+        this.id = idTecnico;
+        this.setNombre(pNombre);
+        this.setApellido(pApellido);
+        this.setCi(pCi);
+        this.setSueldo(pSueldo);
+        this.equipo = pEquipo;
+        idTecnico++;
+    }
 }
