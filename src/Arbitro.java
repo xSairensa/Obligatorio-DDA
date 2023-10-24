@@ -15,4 +15,22 @@ public class Arbitro extends Persona{
     public int getBonificacion(){
         return 0;
     }
+    @Override
+    public String toString() {
+        return  "Nombre: " + this.getNombre() +
+                ", Apellido: " + this.getApellido() +
+                ", CI: " + this.getCi() +
+                ", Sueldo: " + this.getSueldo() +
+                ", Cant partidos: " + this.cantPartidos;
+    }
+
+    public Arbitro(int idArbitro, String pNombre, String pApellido, String pCi, int pSueldo, int pCantPartidos) {
+        this.id = idArbitro;
+        this.setNombre(pNombre);
+        this.setApellido(pApellido);
+        this.setCi(pCi);
+        this.setSueldo(pSueldo);
+        this.cantPartidos = pCantPartidos;
+        idArbitro++;
+    }
 }
