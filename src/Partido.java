@@ -2,9 +2,6 @@ import java.util.Date;
 import java.util.List;
 
 public class Partido {
-    private List<Cuadro> listaCuadros;
-    private List<Tecnico> listaTecnico;
-    private List<Arbitro> listaArbitros;
     private String fechaHora;
     private String equipoLocal;
     private String equipoVisitante;

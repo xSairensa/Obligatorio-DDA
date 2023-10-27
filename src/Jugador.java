@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Jugador extends Persona{
     static int idJugador = 1;
     private String posicion;
-    private String equipo;
+    private Equipo equipo;
     private int minutosJugados;
 
     public String getPosicion() {
@@ -12,12 +12,15 @@ public class Jugador extends Persona{
     public void setPosicion (String posicion){
         this.posicion = posicion;
     }
-    public String getEquipo() {
+
+    public Equipo getEquipo() {
         return equipo;
     }
-    public void setEquipo (String equipo){
+
+    public void setEquipo(Equipo equipo) {
         this.equipo = equipo;
     }
+
     public int getMinutosJugados() {
         return minutosJugados;
     }
@@ -41,19 +44,19 @@ public class Jugador extends Persona{
                 ", CI: " + this.ci +
                 ", Sueldo: " + this.sueldo +
                 ", Posición: " + this.posicion +
-                ", Equipo: " + this.equipo +
+                ", Equipo: " + this.equipo.getNombre() +
                 ", Minutos Jugados: " + this.minutosJugados;
     }
 
-    public Jugador(String pNombre, String pApellido, String pCi, int pSueldo, String pPosicion) {
+    public Jugador(String pNombre, String pApellido, String pCi, int pSueldo, String pPosicion, Equipo pEquipo, int pMinutosJugados) {
         this.id = idJugador;
         this.nombre = pNombre;
         this.apellido = pApellido;
         this.ci = pCi;
         this.sueldo = pSueldo;
         this.posicion = pPosicion;
-        this.equipo = "Ninguno";
-        this.minutosJugados = 0;
+        this.equipo = pEquipo;
+        this.minutosJugados = pMinutosJugados;
         idJugador++;
     }
 }
