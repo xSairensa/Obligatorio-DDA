@@ -582,7 +582,7 @@ public class Main {
     }
     //endregion
     //region Metodos Equipo
-    //FUNCIONA
+    // PENDIENTE LISTA DE JUGADORES, TENGO QUE REVISAR
     public static void altaEquipo(Scanner keyboard){
         keyboard.nextLine();
         System.out.println("Ingrese el nombre del equipo:");
@@ -591,7 +591,6 @@ public class Main {
         pListaEquipos.add(pEquipo);
         System.out.println("El equipo se agregó correctamente");
     }
-    //FUNCIONA
     public static void modificarEquipo(Scanner keyboard){
         keyboard.nextLine();
         listarEquipos();
