@@ -59,7 +59,7 @@ public class Main {
         System.out.flush();
     }
 
-    //region Metodos de Gestion
+    //region Metodos de Gestion - FUNCIONAN TODOS
     //FUNCIONA
     public static void gestionJugadores(Scanner keyboard){
         limpiarConsola();
@@ -167,7 +167,7 @@ public class Main {
             }
         }
     }
-    //ERROR AL VOLVER
+    //FUNCIONA
     public static void gestionArbitros(Scanner keyboard){
         limpiarConsola();
         //   Scanner keyboardT = new Scanner(System.in);
@@ -202,7 +202,6 @@ public class Main {
                     break;
             }
         }
-        keyboard.close();
     }
     public static void gestionarPartidos(Scanner keyboard){
         limpiarConsola();
