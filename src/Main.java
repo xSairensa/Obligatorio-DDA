@@ -114,7 +114,7 @@ public class Main {
                     altaTecnico(keyboard);
                     break;
                 case 2:
-                    actualizarTecnicos();
+                    actualizarTecnicos(keyboard);
                     break;
                 case 3:
                     eliminarTecnico(keyboard);
@@ -186,7 +186,7 @@ public class Main {
                     altaArbitro(keyboard);
                     break;
                 case 2:
-                    actualizarArbitros();
+                    actualizarArbitros(keyboard);
                     break;
                 case 3:
                     eliminarArbitro(keyboard);
@@ -484,7 +484,78 @@ public class Main {
             System.out.println(tecnico);
         }
     }
-    public static void actualizarTecnicos(){
+    //FUNCIONA
+    public static void actualizarTecnicos(Scanner keyboard){
+        keyboard.nextLine();
+        listarTecnicos();
+        System.out.println("Ingrese CI del técnico que desee modificar:");
+        String pCi = keyboard.nextLine();
+        Tecnico pTecnico = buscarTecnico(pCi);
+        boolean salir = false;
+        while(salir == false) {
+            if (pTecnico != null) {
+                System.out.println("Seleccione lo que desea modificar: \n" +
+                        "1 - Nombre: \n" +
+                        "2 - Apellido: \n" +
+                        "3 - CI: \n" +
+                        "4 - Sueldo: \n" +
+                        "5 - Equipo: \n" +
+                        "0 - Volver");
+                int opcion = keyboard.nextInt();
+                keyboard.nextLine();
+                switch (opcion) {
+                    case 1:
+                        System.out.println("Ingrese el nuevo nombre:");
+                        String nuevoNombre = keyboard.nextLine();
+                        pTecnico.setNombre(nuevoNombre);
+                        System.out.println("Nombre modificado correctamente");
+                        break;
+                    case 2:
+                        System.out.println("Ingrese el nuevo apellido:");
+                        String nuevoApellido = keyboard.nextLine();
+                        pTecnico.setApellido(nuevoApellido);
+                        System.out.println("Apellido modificado correctamente");
+                        break;
+                    case 3:
+                        System.out.println("Ingrese la nueva CI:");
+                        String nuevaCI = keyboard.nextLine();
+                        pTecnico.setCi(nuevaCI);
+                        System.out.println("CI modificada correctamente");
+                        break;
+                    case 4:
+                        System.out.println("Ingrese el nuevo sueldo:");
+                        int nuevoSueldo = keyboard.nextInt();
+                        pTecnico.setSueldo(nuevoSueldo);
+                        System.out.println("Sueldo modificado correctamente");
+                        break;
+                    case 5:
+                        System.out.println("Equipos disponibles:");
+                        for (Equipo equipo : pListaEquipos) {
+                            System.out.println(equipo.getNombre());
+                        }
+                        System.out.print("Seleccione el nombre de su equipo nuevo: ");
+                        String nuevoEquipo = keyboard.nextLine();
+                        pTecnico.setEquipo(nuevoEquipo);
+                        break;
+                    case 0:
+                        salir = true;
+                        break;
+                    default:
+                        System.out.println("Opción Incorrecta");
+                        break;
+                }
+            }
+        }
+    }
+    public static Tecnico buscarTecnico(String pCI){
+        Tecnico elTecnico = null;
+        for (Tecnico pTecnico : pListaTecnicos){
+            if(pTecnico.getCi().equalsIgnoreCase(pCI)){
+                elTecnico = pTecnico;
+                break;
+            }
+        }
+        return elTecnico;
     }
     //endregion
     //region Metodos Equipo
@@ -701,7 +772,77 @@ public class Main {
             System.out.println(arbitro);
         }
     }
-    public static void actualizarArbitros(){
+    public static void actualizarArbitros(Scanner keyboard){
+        keyboard.nextLine();
+        listarArbitros();
+        System.out.println("Ingrese CI del árbitro que desee modificar:");
+        String pCi = keyboard.nextLine();
+        Arbitro pArbitro = buscarArbitro(pCi);
+        boolean salir = false;
+        while(salir == false) {
+            if (pArbitro != null) {
+                System.out.println("Seleccione lo que desea modificar: \n" +
+                        "1 - Nombre: \n" +
+                        "2 - Apellido: \n" +
+                        "3 - CI: \n" +
+                        "4 - Sueldo: \n" +
+                        "5 - Minutos jugados: \n" +
+                        "0 - Volver");
+                int opcion = keyboard.nextInt();
+                keyboard.nextLine();
+                switch (opcion) {
+                    case 1:
+                        System.out.println("Ingrese el nuevo nombre:");
+                        String nuevoNombre = keyboard.nextLine();
+                        pArbitro.setNombre(nuevoNombre);
+                        System.out.println("Nombre modificado correctamente");
+                        break;
+                    case 2:
+                        System.out.println("Ingrese el nuevo apellido:");
+                        String nuevoApellido = keyboard.nextLine();
+                        pArbitro.setApellido(nuevoApellido);
+                        System.out.println("Apellido modificado correctamente");
+                        break;
+                    case 3:
+                        System.out.println("Ingrese la nueva CI:");
+                        String nuevaCI = keyboard.nextLine();
+                        pArbitro.setCi(nuevaCI);
+                        System.out.println("CI modificada correctamente");
+                        break;
+                    case 4:
+                        System.out.println("Ingrese el nuevo sueldo:");
+                        int nuevoSueldo = keyboard.nextInt();
+                        pArbitro.setSueldo(nuevoSueldo);
+                        System.out.println("Sueldo modificado correctamente");
+                        break;
+                    case 5:
+                        System.out.println("Ingrese la cantidad de partidos:");
+                        int nuevosPartidos = keyboard.nextInt();
+                        pArbitro.setCantPartidos(nuevosPartidos);
+                        System.out.println("Partidos dirigidos modificados correctamente");
+                        break;
+                    case 0:
+                        salir = true;
+                        break;
+                    default:
+                        System.out.println("Opción Incorrecta");
+                        break;
+                }
+            }
+            else{
+                System.out.println("El equipo no existe");
+            }
+        }
+    }
+    public static Arbitro buscarArbitro(String pCI){
+        Arbitro elArbitro = null;
+        for (Arbitro pArbitro : pListaArbitros){
+            if(pArbitro.getCi().equalsIgnoreCase(pCI)){
+                elArbitro = pArbitro;
+                break;
+            }
+        }
+        return elArbitro;
     }
     //endregion
 }
