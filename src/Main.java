@@ -203,10 +203,33 @@ public class Main {
             }
         }
     }
+    //FUNCIONA
     public static void gestionarPartidos(Scanner keyboard){
         limpiarConsola();
-        System.out.println("Ingresar Datos:");
-        new Scanner(System.in).nextLine();
+        //   Scanner keyboardT = new Scanner(System.in);
+        boolean salir = false;
+        while(salir == false){
+            System.out.println("Ingrese la opcion deseada\n" +
+                    "1- Ingresar Partido \n" +
+                    "2- Listar Partidos \n" +
+                    "0- Volver");
+            //     try {
+            short opcion5 = keyboard.nextShort();
+            switch (opcion5) {
+                case 1:
+                    ingresarPartido(keyboard);
+                        break;
+                case 2:
+                    listarPartidos();
+                    break;
+                case 0:
+                    salir = true;
+                    break;
+                default:
+                    System.out.println("La opcion ingresada no es correcta");
+                    break;
+            }
+        }
     }
     //endregion
 
@@ -844,6 +867,70 @@ public class Main {
         return elArbitro;
     }
     //endregion
+    //region Metodos Partido - COMPLETA
+    //FUNCIONA
+    public static void ingresarPartido(Scanner keyboard) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese los datos del partido:");
+
+        System.out.print("Fecha y hora: ");
+        String pFyH = scanner.nextLine();
+
+        System.out.println("Equipos disponibles:");
+        for (Equipo equipo : pListaEquipos) {
+            System.out.println(equipo.getNombre());
+        }
+        System.out.print("Seleccione el nombre del equipo local: ");
+        String nombreLocal = scanner.nextLine();
+        Equipo equipoSeleccionadoL = null;
+        for (Equipo equipo : pListaEquipos) {
+            if (equipo.getNombre().equalsIgnoreCase(nombreLocal)) {
+                equipoSeleccionadoL = equipo;
+                break;
+            }
+        }
+
+        System.out.print("Seleccione el nombre del equipo visitante: ");
+        String nombreVisitante = scanner.nextLine();
+        Equipo equipoSeleccionadoV = null;
+        for (Equipo equipo : pListaEquipos) {
+            if (equipo.getNombre().equalsIgnoreCase(nombreVisitante)) {
+                equipoSeleccionadoV = equipo;
+                break;
+            }
+        }
+
+        System.out.println("Árbitros disponibles:");
+        for (Arbitro arbitro : pListaArbitros) {
+            System.out.println(arbitro.getNombre() + " " + arbitro.getApellido() + " CI: " + arbitro.getCi());
+        }
+        System.out.print("Seleccione CI del árbitro: ");
+        String CIArbitro = scanner.nextLine();
+        Arbitro arbitroSeleccionado = null;
+        for (Arbitro arbitro : pListaArbitros) {
+            if (arbitro.getCi().equalsIgnoreCase(CIArbitro)) {
+                arbitroSeleccionado = arbitro;
+                break;
+            }
+        }
+
+        Partido pPartido = new Partido(pFyH, equipoSeleccionadoL, equipoSeleccionadoV, arbitroSeleccionado);
+        long cantidad = pListaPartidos.size();
+        pListaPartidos.add(pPartido);
+        if (pListaPartidos.size() > cantidad) {
+            System.out.println("Partido agregado correctamente");
+        } else {
+            System.out.println("Error al guardar el partido");
+        }
+    }
+    //FUNCIONA
+    public static void listarPartidos() {
+        System.out.println("Lista de Partidos:");
+        for (Partido partido : pListaPartidos) {
+            System.out.println(partido);
+        }
+    }
+    //end region
 }
 
 //endregion
