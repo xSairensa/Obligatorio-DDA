@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     static ArrayList<Jugador> pListaJugadores = new ArrayList<Jugador>();
+    static ArrayList<Tecnico> pListaTecnicos = new ArrayList<Tecnico>();
     static ArrayList<Equipo> pListaEquipos = new ArrayList<Equipo>();
     static ArrayList<Arbitro> pListaArbitros = new ArrayList<Arbitro>();
 
@@ -20,8 +21,7 @@ public class Main {
                     "2- Gestionar Técnico \n" +
                     "3- Gestionar Equipo \n" +
                     "4- Gestionar Árbitro \n" +
-                    "5- Gestionar Cuadro \n" +
-                    "6- Gestionar Partido \n" +
+                    "5- Gestionar Partido \n" +
                     "0- Salir");
             try {
                 short opcion = keyboard.nextShort();
@@ -39,9 +39,6 @@ public class Main {
                         gestionArbitros(keyboard);
                         break;
                     case 5:
-                        gestionarCuadros(keyboard);
-                        break;
-                    case 6:
                         gestionarPartidos(keyboard);
                     case 0:
                         salir = true;
@@ -63,16 +60,16 @@ public class Main {
     }
 
     //region Metodos de Gestion
+    //FUNCIONA
     public static void gestionJugadores(Scanner keyboard){
         limpiarConsola();
         boolean salir = false;
         while(salir == false){
             System.out.println("Ingrese la opcion deseada\n" +
                     "1- Alta Jugador \n" +
-                    "2- Modificar Jugador \n" +
+                    "2- Actualizar Jugador \n" +
                     "3- Eliminar Jugador \n" +
                     "4- Listar Jugadores \n" +
-                    "5- Actualizar Jugadores \n" +
                     "0- Volver");
             //     try {
             short opcion2 = keyboard.nextShort();
@@ -81,16 +78,13 @@ public class Main {
                     altaJugador(keyboard);
                     break;
                 case 2:
-                    modificarJugador(keyboard);
+                    actualizarJugadores(keyboard);
                     break;
                 case 3:
                     eliminarJugador(keyboard);
                     break;
                 case 4:
                     listarJugadores();
-                    break;
-                case 5:
-                    actualizarJugadores();
                     break;
                 case 0:
                     salir = true;
@@ -101,17 +95,17 @@ public class Main {
             }
         }
     }
+    //FUNCIONA
     public static void gestionTecnicos(Scanner keyboard){
         limpiarConsola();
-     //   Scanner keyboardT = new Scanner(System.in);
+        //   Scanner keyboardT = new Scanner(System.in);
         boolean salir = false;
         while(salir == false){
             System.out.println("Ingrese la opcion deseada\n" +
                     "1- Alta Técnico \n" +
-                    "2- Modificar Técnico \n" +
+                    "2- Actualizar Técnico \n" +
                     "3- Eliminar Técnico \n" +
                     "4- Listar Técnicos \n" +
-                    "5- Actualizar Técnicos \n" +
                     "0- Volver");
             //     try {
             short opcion3 = keyboard.nextShort();
@@ -120,16 +114,13 @@ public class Main {
                     altaTecnico(keyboard);
                     break;
                 case 2:
-                    modificarTecnico(keyboard);
+                    actualizarTecnicos();
                     break;
                 case 3:
                     eliminarTecnico(keyboard);
                     break;
                 case 4:
                     listarTecnicos();
-                    break;
-                case 5:
-                    actualizarTecnicos();
                     break;
                 case 0:
                     salir = true;
@@ -140,6 +131,7 @@ public class Main {
             }
         }
     }
+    //FUNCIONA
     public static void gestionarEquipos(Scanner keyboard){
         limpiarConsola();
         //   Scanner keyboardT = new Scanner(System.in);
@@ -147,7 +139,7 @@ public class Main {
         while(salir == false){
             System.out.println("Ingrese la opcion deseada\n" +
                     "1- Alta Equipo \n" +
-                    "2- Modificar Equipo \n" +
+                    "2- Actualizar Equipo \n" +
                     "3- Eliminar Equipo \n" +
                     "4- Listar Equipos \n" +
                     "0- Volver");
@@ -175,6 +167,7 @@ public class Main {
             }
         }
     }
+    //ERROR AL VOLVER
     public static void gestionArbitros(Scanner keyboard){
         limpiarConsola();
         //   Scanner keyboardT = new Scanner(System.in);
@@ -182,10 +175,9 @@ public class Main {
         while(salir == false){
             System.out.println("Ingrese la opcion deseada\n" +
                     "1- Alta Árbitro \n" +
-                    "2- Modificar Árbitro \n" +
+                    "2- Actualizar Árbitro \n" +
                     "3- Eliminar Árbitro \n" +
                     "4- Listar Árbitros \n" +
-                    "5- Actualizar Árbitros \n" +
                     "0- Volver");
             //     try {
             short opcion4 = keyboard.nextShort();
@@ -194,16 +186,13 @@ public class Main {
                     altaArbitro(keyboard);
                     break;
                 case 2:
-                    modificarArbitro(keyboard);
+                    actualizarArbitros();
                     break;
                 case 3:
                     eliminarArbitro(keyboard);
                     break;
                 case 4:
                     listarArbitros();
-                    break;
-                case 5:
-                    actualizarArbitros();
                     break;
                 case 0:
                     salir = true;
@@ -215,11 +204,6 @@ public class Main {
         }
         keyboard.close();
     }
-    public static void gestionarCuadros(Scanner keyboard){
-        limpiarConsola();
-        System.out.println("Ingresar Datos:");
-        new Scanner(System.in).nextLine();
-    }
     public static void gestionarPartidos(Scanner keyboard){
         limpiarConsola();
         System.out.println("Ingresar Datos:");
@@ -228,6 +212,7 @@ public class Main {
     //endregion
 
     //region Metodos Jugador
+    //FUNCIONA
     public static void altaJugador(Scanner keyboard){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese los datos del jugador:");
@@ -262,9 +247,8 @@ public class Main {
                 break;
             }
         }
-
         System.out.print("Minutos jugados: ");
-        int minutosJugados = scanner.nextInt();
+        int pMinutosJugados = scanner.nextInt();
         scanner.nextLine();
 
         int jugadoresPorEquipo = 0;
@@ -273,21 +257,17 @@ public class Main {
                 jugadoresPorEquipo++;
             }
         }
-        Jugador pJugador = new Jugador(pNombre, pApellido, pCi, pSueldo, pPosicion, equipoSeleccionado, minutosJugados);
+        Jugador pJugador = new Jugador(pNombre, pApellido, pCi, pSueldo, pPosicion, nombreEquipo, pMinutosJugados);
         long cantidad = pListaJugadores.size();
-        if(!jugadorExistente(pJugador.getCi(), pListaJugadores)) {
-            pListaJugadores.add(pJugador);
-            if (pListaJugadores.size() > cantidad) {
-                System.out.println("Jugador agregado correctamente");
-            }
+        pListaJugadores.add(pJugador);
+        if (pListaJugadores.size() > cantidad) {
+            System.out.println("Jugador agregado correctamente");
         }
         else{
             System.out.println("El jugador ya existe");
         }
-
     }
-    public static void modificarJugador(Scanner keyboard){
-    }
+    //FUNCIONA
     public static void eliminarJugador(Scanner keyboard){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese CI del jugador que quiere eliminar:");
@@ -302,23 +282,128 @@ public class Main {
                 break;
             }
         }
-
-       /* if (jugadorE != null) {
-            pListaJugadores.remove(jugadorE);
-            listarJugadores();
-        } else {
-            System.out.println("Nombre no encontrado. \n");
-        } */
     }
+    //FUNCIONA
     public static void listarJugadores(){
         System.out.println("Lista de Jugadores:");
         for (Jugador jugador : pListaJugadores) {
             System.out.println(jugador);
         }
     }
-    public static void actualizarJugadores(){
-    }
+    //FUNCIONA
+    public static void actualizarJugadores(Scanner keyboard){
+        keyboard.nextLine();
+        listarJugadores();
+        System.out.println("Ingrese CI del jugador que desee modificar:");
+        String pCi = keyboard.nextLine();
+        Jugador pJugador = buscarJugador(pCi);
+        boolean salir = false;
+        while(salir == false) {
+            if (pJugador != null) {
+                System.out.println("Seleccione lo que desea modificar: \n" +
+                        "1 - Nombre: \n" +
+                        "2 - Apellido: \n" +
+                        "3 - CI: \n" +
+                        "4 - Sueldo: \n" +
+                        "5 - Posición: \n" +
+                        "6 - Equipo: \n" +
+                        "7 - Minutos jugados: \n" +
+                        "0 - Volver");
+                int opcion = keyboard.nextInt();
+                keyboard.nextLine();
+                switch (opcion) {
+                    case 1:
+                        System.out.println("Ingrese el nuevo nombre:");
+                        String nuevoNombre = keyboard.nextLine();
+                        pJugador.setNombre(nuevoNombre);
+                        System.out.println("Nombre modificado correctamente");
+                        break;
+                    case 2:
+                        System.out.println("Ingrese el nuevo apellido:");
+                        String nuevoApellido = keyboard.nextLine();
+                        pJugador.setApellido(nuevoApellido);
+                        System.out.println("Apellido modificado correctamente");
+                        break;
+                    case 3:
+                        System.out.println("Ingrese la nueva CI:");
+                        String nuevaCI = keyboard.nextLine();
+                        pJugador.setCi(nuevaCI);
+                        System.out.println("CI modificada correctamente");
+                        break;
+                    case 4:
+                        System.out.println("Ingrese el nuevo sueldo:");
+                        int nuevoSueldo = keyboard.nextInt();
+                        pJugador.setSueldo(nuevoSueldo);
+                        System.out.println("Sueldo modificado correctamente");
+                        break;
+                    case 5:
+                        System.out.println("Ingrese la nueva posición:");
+                        String nuevaPosicion = keyboard.nextLine();
+                        pJugador.setPosicion(nuevaPosicion);
+                        System.out.println("Posición modificada correctamente");
+                        break;
+                    case 6:
+                        System.out.println("Equipos disponibles:");
+                        for (Equipo equipo : pListaEquipos) {
+                            System.out.println(equipo.getNombre());
+                        }
+                        System.out.print("Seleccione el nombre de su equipo nuevo: ");
+                        String nuevoEquipo = keyboard.nextLine();
+                        pJugador.setEquipo(nuevoEquipo);
 
+                        Equipo equipoSeleccionado = null;
+                        for (Equipo equipo : pListaEquipos) {
+                            if (equipo.getNombre().equalsIgnoreCase(nuevoEquipo)) {
+                                equipoSeleccionado = equipo;
+                                break;
+                            }
+                        }
+
+                        int jugadoresPorEquipo = 0;
+                        for (Jugador jugador : pListaJugadores) {
+                            if (jugador.getEquipo().equals(equipoSeleccionado)) {
+                                jugadoresPorEquipo++;
+                                System.out.println("Equipo modificado correctamente");
+                                break;
+                            }
+                        }
+                        if (jugadoresPorEquipo > 7){
+                            System.out.print("No se pueden agregar más de 7 jugadores. Debe seleccionar otro equipo");
+
+                            System.out.print("Seleccione el nombre de su equipo nuevo: ");
+                            String nuevoEquipo2 = keyboard.nextLine();
+                            pJugador.setEquipo(nuevoEquipo2);
+
+                            Equipo equipoSeleccionado2 = null;
+                            for (Equipo equipo : pListaEquipos) {
+                                if (equipo.getNombre().equalsIgnoreCase(nuevoEquipo2)) {
+                                    equipoSeleccionado2 = equipo;
+                                    System.out.println("Equipo modificado correctamente");
+                                    jugadoresPorEquipo = 7;
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    case 7:
+                        System.out.println("Ingrese la cantidad de minutos jugados:");
+                        int nuevosMin = keyboard.nextInt();
+                        pJugador.setMinutosJugados(nuevosMin);
+                        System.out.println("Mins jugados modificados correctamente");
+                        break;
+                    case 0:
+                        salir = true;
+                        break;
+                    default:
+                        System.out.println("Opción Incorrecta");
+                        break;
+                }
+            }
+            else{
+                System.out.println("El equipo no existe");
+            }
+        }
+    }
     public static Jugador buscarJugador(String pCI){
         Jugador elJugador = null;
         for (Jugador pJugador : pListaJugadores){
@@ -329,20 +414,81 @@ public class Main {
         }
         return elJugador;
     }
+
     //endregion
     //region Metodos Tecnico
+    //FUNCIONA
     public static void altaTecnico(Scanner keyboard){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese los datos del técnico:");
+
+        System.out.print("Nombre: ");
+        String pNombre = scanner.nextLine();
+
+        System.out.print("Apellido: ");
+        String pApellido = scanner.nextLine();
+
+        System.out.print("Cédula: ");
+        String pCi = scanner.nextLine();
+
+        System.out.print("Sueldo: ");
+        int pSueldo = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Equipos disponibles:");
+        for (Equipo equipo : pListaEquipos) {
+            System.out.println(equipo.getNombre());
+        }
+        System.out.print("Seleccione el nombre de su equipo: ");
+        String nombreEquipo = scanner.nextLine();
+
+        Equipo equipoSeleccionado = null;
+        for (Equipo equipo : pListaEquipos) {
+            if (equipo.getNombre().equalsIgnoreCase(nombreEquipo)) {
+                equipoSeleccionado = equipo;
+                break;
+            }
+        }
+
+        Tecnico pTecnico = new Tecnico(pNombre, pApellido, pCi, pSueldo, nombreEquipo);
+        long cantidad = pListaTecnicos.size();
+        pListaTecnicos.add(pTecnico);
+        if(pListaTecnicos.size() > cantidad){
+            System.out.println("Técnico agregado correctamente");
+        }
+        else{
+            System.out.println("Error al guardar el técnico");
+        }
     }
-    public static void modificarTecnico(Scanner keyboard){
-    }
+    //FUNCIONA
     public static void eliminarTecnico(Scanner keyboard){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese la CI del técnico que quiere eliminar:");
+        String ciT = scanner.nextLine();
+
+        Tecnico tecnicoE = null;
+        for (Tecnico tecnico : pListaTecnicos) {
+            if (tecnico.getCi().equals(ciT)) {
+                tecnicoE = tecnico;
+                pListaTecnicos.remove(tecnicoE);
+                System.out.println("El técnico se eliminó correctamente.");
+                listarTecnicos();
+                break;
+            }
+        }
     }
+    //FUNCIONA
     public static void listarTecnicos(){
+        System.out.println("Lista de Tecnicos:");
+        for (Tecnico tecnico : pListaTecnicos) {
+            System.out.println(tecnico);
+        }
     }
     public static void actualizarTecnicos(){
     }
     //endregion
     //region Metodos Equipo
+    //FUNCIONA
     public static void altaEquipo(Scanner keyboard){
         keyboard.nextLine();
         System.out.println("Ingrese el nombre del equipo:");
@@ -351,6 +497,7 @@ public class Main {
         pListaEquipos.add(pEquipo);
         System.out.println("El equipo se agregó correctamente");
     }
+    //FUNCIONA
     public static void modificarEquipo(Scanner keyboard){
         keyboard.nextLine();
         listarEquipos();
@@ -392,8 +539,24 @@ public class Main {
             }
         }
     }
+    //FUNCIONA
     public static void eliminarEquipo(Scanner keyboard){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el nombre del equipo que quiere eliminar:");
+        String nombreE = scanner.nextLine();
+
+        Equipo equipoE = null;
+        for (Equipo equipo : pListaEquipos) {
+            if (equipo.getNombre().equals(nombreE)) {
+                equipoE = equipo;
+                pListaEquipos.remove(equipoE);
+                System.out.println("El equipo se eliminó correctamente.");
+                listarEquipos();
+                break;
+            }
+        }
     }
+    //FUNCIONA
     public static void listarEquipos(){
         System.out.println("Lista de Equipos:");
         for (Equipo pEquipo : pListaEquipos) {
@@ -461,7 +624,6 @@ public class Main {
             }
         }
     }
-
     public static Equipo buscarEquipo(String pNombreEquipo){
         Equipo elEquipo = null;
         for (Equipo pEquipo : pListaEquipos){
@@ -483,16 +645,65 @@ public class Main {
     }
     //endregion
     //region Metodos Arbitro
+    //FUNCIONA
     public static void altaArbitro(Scanner keyboard){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese los datos del técnico:");
+
+        System.out.print("Nombre: ");
+        String pNombre = scanner.nextLine();
+
+        System.out.print("Apellido: ");
+        String pApellido = scanner.nextLine();
+
+        System.out.print("Cédula: ");
+        String pCi = scanner.nextLine();
+
+        System.out.print("Sueldo: ");
+        int pSueldo = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Cantidad de partidos: ");
+        int pCantPartidos = scanner.nextInt();
+        scanner.nextLine();
+
+        Arbitro pArbitro = new Arbitro(pNombre, pApellido, pCi, pSueldo, pCantPartidos);
+        long cantidad = pListaArbitros.size();
+        pListaArbitros.add(pArbitro);
+        if(pListaArbitros.size() > cantidad){
+            System.out.println("Árbitro agregado correctamente");
+        }
+        else{
+            System.out.println("Error al guardar el árbitro");
+        }
     }
-    public static void modificarArbitro(Scanner keyboard){
-    }
+    //FUNCIONA
     public static void eliminarArbitro(Scanner keyboard){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese la CI del árbitro que quiere eliminar:");
+        String ciA = scanner.nextLine();
+
+        Arbitro arbitroE = null;
+        for (Arbitro arbitro : pListaArbitros) {
+            if (arbitro.getCi().equals(ciA)) {
+                arbitroE = arbitro;
+                pListaArbitros.remove(arbitroE);
+                System.out.println("El árbitro se eliminó correctamente.");
+                listarArbitros();
+                break;
+            }
+        }
     }
+    //FUNCIONA
     public static void listarArbitros(){
+        System.out.println("Lista de Árbitros:");
+        for (Arbitro arbitro : pListaArbitros) {
+            System.out.println(arbitro);
+        }
     }
     public static void actualizarArbitros(){
     }
     //endregion
 }
 
+//endregion
