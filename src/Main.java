@@ -212,7 +212,7 @@ public class Main {
     //endregion
 
     //region Metodos Jugador
-    //FUNCIONA
+    //FUNCIONA después: revisar que pasa cuando hay más de 7 jugadores
     public static void altaJugador(Scanner keyboard){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese los datos del jugador:");
