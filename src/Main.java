@@ -9,6 +9,7 @@ public class Main {
     static ArrayList<Tecnico> pListaTecnicos = new ArrayList<Tecnico>();
     static ArrayList<Equipo> pListaEquipos = new ArrayList<Equipo>();
     static ArrayList<Arbitro> pListaArbitros = new ArrayList<Arbitro>();
+    static ArrayList<Partido> pListaPartidos = new ArrayList<Partido>();
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
