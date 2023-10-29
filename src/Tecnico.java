@@ -35,6 +35,10 @@ public class Tecnico extends Persona{
         idTecnico++;
     }
 
+    public Tecnico(){
+
+    }
+
     private String nombreEquipo(){
         return (equipo != null ) ? this.equipo.getNombre() : "Ninguno";
     }

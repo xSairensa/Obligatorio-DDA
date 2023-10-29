@@ -60,6 +60,10 @@ public class Jugador extends Persona{
         idJugador++;
     }
 
+    public Jugador(){
+
+    }
+
     private String nombreEquipo(){
         return (equipo != null ) ? this.equipo.getNombre() : "Ninguno";
     }

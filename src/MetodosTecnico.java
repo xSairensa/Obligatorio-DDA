@@ -148,16 +148,14 @@ public class MetodosTecnico {
         System.out.println("Ingrese la CI del técnico que quiere eliminar:");
         String ciT = scanner.nextLine();
 
-        Tecnico tecnicoE = null;
-        for (Tecnico tecnico : pListaTecnicos) {
-            if (tecnico.getCi().equals(ciT)) {
-                tecnicoE = tecnico;
+        Tecnico tecnicoE = buscarTecnico(ciT);
+            if (tecnicoE != null) {
+                Equipo pEquipo = tecnicoE.getEquipo();
+                pEquipo.setTecnico(null);
                 pListaTecnicos.remove(tecnicoE);
                 System.out.println("El técnico se eliminó correctamente.");
                 listarTecnicos();
-                break;
             }
-        }
     }
     //FUNCIONA
     public static void listarTecnicos(){

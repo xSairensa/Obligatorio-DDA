@@ -34,4 +34,8 @@ public class Arbitro extends Persona{
         this.cantPartidos = pCantPartidos;
         idArbitro++;
     }
+
+    public Arbitro(){
+
+    }
 }

@@ -66,7 +66,7 @@ public class MetodosJugador {
         String nombreEquipo = keyboard.nextLine();
 
         Equipo equipoSeleccionado = pMetodosE.buscarEquipo(nombreEquipo);
-        if(equipoSeleccionado != null) {
+        if(equipoSeleccionado != null & pMetodosE.cantidadEquiposDisponibles() > 1) {
             boolean equipoDisponible = false;
             while (!equipoDisponible) {
                 int jugadoresPorEquipo = pMetodosE.cantidadJugadores(equipoSeleccionado);
@@ -200,11 +200,14 @@ public class MetodosJugador {
     }
     //FUNCIONA
     public static void eliminarJugador(Scanner keyboard){
+        MetodosEquipo MetodosE = new MetodosEquipo();
         System.out.println("Ingrese CI del jugador que quiere eliminar:");
         String CIeliminar = keyboard.nextLine();
 
         Jugador jugadorE = buscarJugador(CIeliminar);
         if(jugadorE != null) {
+            Equipo pEquipo = jugadorE.getEquipo();
+            MetodosE.eliminarJugador(pEquipo, jugadorE);
             pListaJugadores.remove(jugadorE);
         }
         else{

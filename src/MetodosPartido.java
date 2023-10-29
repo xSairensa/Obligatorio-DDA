@@ -6,7 +6,6 @@ public class MetodosPartido {
     //FUNCIONA
     public static void gestionarPartidos(Scanner keyboard){
         limpiarConsola();
-        //   Scanner keyboardT = new Scanner(System.in);
         boolean salir = false;
         while(salir == false){
             System.out.println("Ingrese la opcion deseada\n" +
@@ -38,6 +37,9 @@ public class MetodosPartido {
     public static void ingresarPartido(Scanner keyboard) {
         MetodosEquipo pMetodosE = new MetodosEquipo();
         MetodosArbitro pMetodosA = new MetodosArbitro();
+        Tecnico pTecnico = new Tecnico();
+        Jugador pJugador = new Jugador();
+        Arbitro pArbitro = new Arbitro();
         System.out.println("Ingrese los datos del partido:");
 
         System.out.print("Fecha y hora: ");
@@ -53,6 +55,7 @@ public class MetodosPartido {
         String nombreVisitante = keyboard.nextLine();
         Equipo equipoSeleccionadoV = pMetodosE.buscarEquipo(nombreVisitante);
 
+
         System.out.println("Árbitros disponibles:");
         pMetodosA.listarArbitros();
         System.out.print("Seleccione CI del árbitro: ");
@@ -63,6 +66,9 @@ public class MetodosPartido {
         long cantidad = pListaPartidos.size();
         pListaPartidos.add(pPartido);
         if (pListaPartidos.size() > cantidad) {
+            pTecnico.precalentar();
+            pArbitro.precalentar();
+            pJugador.precalentar();
             System.out.println("Partido agregado correctamente");
         } else {
             System.out.println("Error al guardar el partido");

@@ -26,7 +26,7 @@ public class MetodosEquipo {
                     eliminarEquipo(keyboard);
                     break;
                 case 4:
-                    listarEquipos();
+                    listarEquiposDetallados();
                     break;
                 case 0:
                     salir = true;
@@ -176,23 +176,30 @@ public class MetodosEquipo {
     }
     //FUNCIONA
     public static void eliminarEquipo(Scanner keyboard){
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el nombre del equipo que quiere eliminar:");
-        String nombreE = scanner.nextLine();
+        String nombreE = keyboard.nextLine();
 
-        Equipo equipoE = null;
-        for (Equipo equipo : pListaEquipos) {
-            if (equipo.getNombre().equals(nombreE)) {
-                equipoE = equipo;
+        Equipo equipoE = buscarEquipo(nombreE);
+            if (equipoE != null) {
+                ArrayList<Jugador> pLista = equipoE.getListaJugadores();
+                Tecnico pTecnico = equipoE.getTecnico();
+                pTecnico.setEquipo(null);
+                for(Jugador pJugador : pLista){
+                    pJugador.setEquipo(null);
+                }
                 pListaEquipos.remove(equipoE);
                 System.out.println("El equipo se eliminó correctamente.");
                 listarEquipos();
-                break;
             }
-        }
     }
     //FUNCIONA
     public static void listarEquipos(){
+        System.out.println("Lista de Equipos:");
+        for (Equipo pEquipo : pListaEquipos) {
+            System.out.println(pEquipo.toString());
+        }
+    }
+    public static void listarEquiposDetallados(){
         System.out.println("Lista de Equipos:");
         for (Equipo pEquipo : pListaEquipos) {
             System.out.println(pEquipo.detallesEquipo());
@@ -239,5 +246,15 @@ public class MetodosEquipo {
             pEquipo.setListaJugadores(pLista);
             pJugador.setEquipo(null);
         }
+    }
+
+    public static int cantidadEquiposDisponibles(){
+        int contador = 0;
+        for(Equipo pEquipo : pListaEquipos){
+            if(pEquipo.getListaJugadores().size() < 7){
+                contador++;
+            }
+        }
+        return contador;
     }
 }
