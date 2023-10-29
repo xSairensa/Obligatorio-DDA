@@ -1,9 +1,10 @@
 public class Tecnico extends Persona{
-    private String equipo;
-    public String getEquipo() {
+    private int idTecnico = 1;
+    private Equipo equipo;
+    public Equipo getEquipo() {
         return equipo;
     }
-    public void setEquipo (String equipo){
+    public void setEquipo (Equipo equipo){
         this.equipo = equipo;
     }
     @Override
@@ -21,10 +22,10 @@ public class Tecnico extends Persona{
                 ", Apellido: " + this.getApellido() +
                 ", CI: " + this.getCi() +
                 ", Sueldo: " + this.getSueldo() +
-                ", Equipo: " + this.equipo;
+                ", Equipo: " + nombreEquipo();
     }
 
-    public Tecnico(int idTecnico, String pNombre, String pApellido, String pCi, int pSueldo, String pEquipo) {
+    public Tecnico(String pNombre, String pApellido, String pCi, int pSueldo, Equipo pEquipo) {
         this.id = idTecnico;
         this.setNombre(pNombre);
         this.setApellido(pApellido);
@@ -32,5 +33,9 @@ public class Tecnico extends Persona{
         this.setSueldo(pSueldo);
         this.equipo = pEquipo;
         idTecnico++;
+    }
+
+    private String nombreEquipo(){
+        return (equipo != null ) ? this.equipo.getNombre() : "Ninguno";
     }
 }

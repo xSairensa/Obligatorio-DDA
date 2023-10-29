@@ -1,4 +1,5 @@
 public class Arbitro extends Persona{
+    private int idArbitro = 1;
     private int cantPartidos;
     public int getCantPartidos() {
         return cantPartidos;
@@ -24,7 +25,7 @@ public class Arbitro extends Persona{
                 ", Cant partidos: " + this.cantPartidos;
     }
 
-    public Arbitro(int idArbitro, String pNombre, String pApellido, String pCi, int pSueldo, int pCantPartidos) {
+    public Arbitro(String pNombre, String pApellido, String pCi, int pSueldo, int pCantPartidos) {
         this.id = idArbitro;
         this.setNombre(pNombre);
         this.setApellido(pApellido);

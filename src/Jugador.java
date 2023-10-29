@@ -44,7 +44,7 @@ public class Jugador extends Persona{
                 ", CI: " + this.ci +
                 ", Sueldo: " + this.sueldo +
                 ", Posición: " + this.posicion +
-                ", Equipo: " + this.equipo.getNombre() +
+                ", Equipo: " + nombreEquipo() +
                 ", Minutos Jugados: " + this.minutosJugados;
     }
 
@@ -58,5 +58,9 @@ public class Jugador extends Persona{
         this.equipo = pEquipo;
         this.minutosJugados = pMinutosJugados;
         idJugador++;
+    }
+
+    private String nombreEquipo(){
+        return (equipo != null ) ? this.equipo.getNombre() : "Ninguno";
     }
 }
